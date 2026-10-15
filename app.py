@@ -41,8 +41,7 @@ if APP_PASSWORD and not st.session_state.get("authed"):
         else:
             st.error("Wrong password.")
     st.stop()
-
-API_KEY = secret("ANTHROPIC_API_KEY")
+API_KEY = secret("ANTHROPIC_API_KEY").strip().strip('"').strip("'")
 if API_KEY:
     os.environ["ANTHROPIC_API_KEY"] = API_KEY
 
